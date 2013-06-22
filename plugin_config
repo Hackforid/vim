@@ -1,0 +1,28 @@
+"==========  theme  ===========
+if has('gui_running')
+	set background=dark
+	colorscheme solarized
+else
+	colorscheme desert
+endif		
+
+" powerline 
+set laststatus=2 
+set t_Co=256 
+let g:Powerline_symbols = 'fancy' 
+let Powerline_symbols = 'compatible' 
+set encoding=utf8
+
+" AutoCompleteMe
+"let g:ycm_filetype_whitelist = { '*': 1 }
+nnoremap <F1> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" jedi
+let g:jedi#autocompletion_command = "<A-/>"
+
+"NERD_tree
+map <F8> :NERDTree<CR>
+
+""let g:UltiSnipsExpandTrigger="<c-j>"
+""let g:UltiSnipsJumpForwardTrigger="<c-j>"
+""let g:UltiSnipsJumpBackwardTrigger="<c-k>"
