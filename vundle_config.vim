@@ -2,7 +2,7 @@ set nocompatible               " be iMproved
 filetype off                   " required!
 
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc() 
+call vundle#rc()
 
 "let Vundle manage Vundle
 "required!
@@ -19,12 +19,15 @@ Bundle 'Tagbar'
 
 Bundle 'jQuery'
 
+Bundle 'rking/ag.vim'
+
 " 显示行末空格
-Bundle 'ShowTrailingWhitespace'
+"Bundle 'ShowTrailingWhitespace'
 
 " 主题
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tomasr/molokai'
+Bundle 'vim-scripts/turbo.vim'
 
 " powerline
 Bundle 'Lokaltog/vim-powerline'
@@ -38,25 +41,27 @@ Bundle 'vim-scripts/CSApprox'
 
 " 对齐线
 Bundle 'Yggdroot/indentLine'
+"
+" python pep8 + pyflask F7
+Bundle 'nvie/vim-flake8'
+Bundle 'pyflakes.vim'
+"Bundle 'scrooloose/syntastic'
+Bundle 'tell-k/vim-autopep8'
 
 " 目录树 F8
 Bundle 'scrooloose/nerdtree'
+Bundle 'jistr/vim-nerdtree-tabs'
 
 Bundle 'plasticboy/vim-markdown'
 
-Bundle 'mattn/zencoding-vim'
 
 " 代码块补全
 Bundle 'UltiSnips'
 
-" 跳转插件 \\w 
+" 跳转插件 \\w
 Bundle 'Lokaltog/vim-easymotion'
 
-" python pep8 + pyflask F7
-Bundle 'nvie/vim-flake8'
 
-Bundle 'pyflakes.vim'
-"
 " 注释 \cc \cn \c
 Bundle 'scrooloose/nerdcommenter'
 
@@ -64,6 +69,8 @@ Bundle 'kien/ctrlp.vim'
 
 " 多行选择 C-n C-p C-x
 Bundle 'terryma/vim-multiple-cursors'
+
+Bundle 'bufexplorer.zip'
 
 Bundle 'sophacles/vim-processing'
 
@@ -81,8 +88,10 @@ filetype plugin indent on     " required!
 if has('gui_running')
 	set background=dark
 	colorscheme molokai
+	set guifont=Menlo:h13
 else
 	colorscheme molokai
+	set guifont=Menlo:h13
 endif
 
 " powerline
@@ -91,20 +100,19 @@ set t_Co=256
 let g:Powerline_symbols = 'fancy'
 let Powerline_symbols = 'compatible'
 set encoding=utf8
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
 "let g:airline_theme='luna'
 
 " YouCompleteMe`
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
 nmap <F1> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let g:ycm_complete_in_comments_and_strings = 1
-"let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
-"let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>']
 
 "NERD_tree
-"map <F8> :NERDTree<CR>
-map <F8> :NERDTreeFocus<CR>
-map <C-F8> :NERDTreeClose<CR>
+map <F9> <plug>NERDTreeSteppedOpen<CR>
+map <C-F9> <plug>NERDTreeSteppedClose<CR>
+let g:nerdtree_tabs_open_on_gui_startup=0
+let NERDTreeIgnore = ['\.pyc$']
+
 
 "easyMotion
 nmap <A-f> \\w
@@ -115,6 +123,8 @@ let g:UltiSnipsJumpForwardTrigger="<C-g>"
 let g:UltiSnipsJumpBackwardTrigger="<C-f>"
 
 " 禁止PyFlakes使用QuickFix，这样在按下<F7>时会调用flake8，而有对于代码编辑时的错误仍能得到有效的提示
+"autocmd FileType python map <buffer> <F8> :call Autopep8()<CR>
+"let g:autopep8_disable_show_diff=1
 let g:flake8_ignore="E501,W293"
 let g:pyflakes_use_quickfix = 0
 
@@ -122,5 +132,5 @@ let g:pyflakes_use_quickfix = 0
 let g:EclimCompletionMethod = 'omnifunc'
 :set list lcs=tab:\.\ 
 
-
+nmap <F2> \be
 nmap <F4> :TagbarToggle<CR>

@@ -16,6 +16,10 @@ else
 	let g:isGUI = 0
 endif
 
+if has("gui_macvim")
+	set macmeta
+end
+
 "==============================================================================
 "< 一般设置》
 "==============================================================================
@@ -117,10 +121,10 @@ endfunction
 "窗口分割时,进行切换的按键热键需要连接两次,比如从下方窗口移动
 "光标到上方窗口,需要<c-w><c-w>k,非常麻烦,现在重映射为<c-k>,切换的
 "时候会变得非常方便.
-"nnoremap <C-H> <C-w>h
-"nnoremap <C-J> <C-w>j
-"nnoremap <C-K> <C-w>k
-"nnoremap <C-L> <C-w>l
+nnoremap <A-H> <C-w>h
+nnoremap <A-J> <C-w>j
+nnoremap <A-K> <C-w>k
+nnoremap <A-L> <C-w>l
 " 选中状态下 Ctrl+c 复制
 vmap <C-c> "+y
 imap <C-v> <esc>"+pa
@@ -154,10 +158,18 @@ noremap <A-O> O<esc>j
 
 nmap <TAB> ^i<TAB><esc>^
 
+nnoremap j gj
+nnoremap k gk
+
+cnoremap <C-j> <t_kd>
+cnoremap <C-k> <t_ku>
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+
 " sudo
 cnoremap w!! w !sudo tee % >/dev/null
 
-map <F2> :source ~/.vimrc<CR>
+map <F10> :source ~/.vimrc<CR>
 
 " ======================  其他配置 ==============================
 source ~/.vim/vundle_config.vim
@@ -167,12 +179,15 @@ filetype on
 autocmd FileType python setlocal et sta sw=4 sts=4
 autocmd FileType python setlocal foldmethod=indent
 
+autocmd FileType mako setlocal et sta sw=4 sts=4
+autocmd FileType mako setlocal foldmethod=indent
+
 autocmd FileType processing setlocal et sta sw=4 sts=4
 autocmd FileType processing setlocal foldmethod=indent
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""    """"                                                                        
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "C语言编译
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""    """
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <C-F5> :call Compile()<CR> "设置编译映射
 func! Compile()
 	if &filetype == 'c'
@@ -199,7 +214,7 @@ func! CompileRun()
 	if &filetype == 'c'
 		exec "w"
 		exec "!clear"
-		set makeprg=gcc\ -Wall\ %:p\ -o\ -%:r                                       
+		set makeprg=gcc\ -Wall\ %:p\ -o\ -%:r
 		exec "make"
 		exec "!./-%<"
 	endif
@@ -212,9 +227,33 @@ func!  Debug()
 	exec "!gdb %<"
 endfunc
 
-command Js set filetype=javascript
-command Mako set filetype=mako
-command Html set filetype=html
-command Css set filetype=css
-command Python set filetype=python
+command! Js set filetype=javascript
+command! Mako set filetype=mako
+command! Html set filetype=html
+command! Css set filetype=css
+command! Python set filetype=python
 
+"##### auto fcitx  ###########
+let g:input_toggle = 1
+function! Fcitx2en()
+   let s:input_status = system("fcitx-remote")
+   if s:input_status == 2
+      let g:input_toggle = 1
+      let l:a = system("fcitx-remote -c")
+   endif
+endfunction
+
+function! Fcitx2zh()
+   let s:input_status = system("fcitx-remote")
+   if s:input_status != 2 && g:input_toggle == 1
+      let l:a = system("fcitx-remote -o")
+      let g:input_toggle = 0
+   endif
+endfunction
+
+set ttimeoutlen=150
+"退出插入模式
+autocmd InsertLeave * call Fcitx2en()
+"进入插入模式
+autocmd InsertEnter * call Fcitx2zh()
+"##### auto fcitx end ######
