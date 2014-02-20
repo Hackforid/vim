@@ -173,6 +173,15 @@ autocmd FileType python setlocal foldmethod=indent
 autocmd FileType mako setlocal et sta sw=4 sts=4
 autocmd FileType mako setlocal foldmethod=indent
 
+autocmd FileType html setlocal et sta sw=4 sts=4
+autocmd FileType html setlocal foldmethod=indent
+
+autocmd FileType js setlocal et sta sw=4 sts=4
+autocmd FileType js setlocal foldmethod=indent
+
+autocmd FileType css setlocal et sta sw=4 sts=4
+autocmd FileType css setlocal foldmethod=indent
+
 autocmd FileType processing setlocal et sta sw=4 sts=4
 autocmd FileType processing setlocal foldmethod=indent
 

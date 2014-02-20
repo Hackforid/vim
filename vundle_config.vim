@@ -120,9 +120,11 @@ let NERDTreeIgnore = ['\.pyc$']
 nmap <A-f> \\w
 nmap <A-d> \\b
 
-let g:UltiSnipsExpandTrigger="<C-g>"
-let g:UltiSnipsJumpForwardTrigger="<C-g>"
-let g:UltiSnipsJumpBackwardTrigger="<C-f>"
+let g:UltiSnipsExpandTrigger='<C-j>'
+let g:UltiSnipsJumpForwardTrigger='<C-j>'
+let g:UltiSnipsJumpBackwardTrigger='<C-k>'
+let g:UltiSnipsListSnippets='<A-Space>'
+
 
 " 禁止PyFlakes使用QuickFix，这样在按下<F7>时会调用flake8，而有对于代码编辑时的错误仍能得到有效的提示
 "autocmd FileType python map <buffer> <F8> :call Autopep8()<CR>
