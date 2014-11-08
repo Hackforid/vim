@@ -19,10 +19,12 @@ Bundle 'Tagbar'
 
 Bundle 'jQuery'
 
-Bundle 'rking/ag.vim'
+" SilverSearch
+"Bundle 'rking/ag.vim'
+Bundle 'dyng/ctrlsf.vim'
 
 " 显示行末空格
-"Bundle 'ShowTrailingWhitespace'
+Bundle 'ShowTrailingWhitespace'
 
 " 主题
 Bundle 'altercation/vim-colors-solarized'
@@ -54,6 +56,8 @@ Bundle 'jistr/vim-nerdtree-tabs'
 
 Bundle 'plasticboy/vim-markdown'
 
+" 平滑滚动
+Bundle 'yonchu/accelerated-smooth-scroll'
 
 " 代码块补全
 Bundle 'UltiSnips'
@@ -76,6 +80,8 @@ Bundle 'sophacles/vim-processing'
 
 Bundle 'sophacles/vim-bundle-mako'
 
+Bundle 'junegunn/goyo.vim'
+
 filetype plugin indent on     " required!
 
 " Brief help
@@ -86,7 +92,9 @@ filetype plugin indent on     " required!
 
 "==========  theme  ===========
 if has('gui_running')
-	set background=dark
+	set macmeta
+	set transparency=10
+	"set background=dark
 	colorscheme molokai
 	set guifont=Menlo:h13
 else
@@ -116,10 +124,6 @@ let g:nerdtree_tabs_open_on_gui_startup=0
 let NERDTreeIgnore = ['\.pyc$']
 
 
-"easyMotion
-nmap <A-f> \\w
-nmap <A-d> \\b
-
 let g:UltiSnipsExpandTrigger='<C-j>'
 let g:UltiSnipsJumpForwardTrigger='<C-j>'
 let g:UltiSnipsJumpBackwardTrigger='<C-k>'
@@ -138,3 +142,10 @@ let g:EclimCompletionMethod = 'omnifunc'
 
 nmap <F2> \be
 nmap <F4> :TagbarToggle<CR>
+
+nmap     <C-F>f <Plug>CtrlSFPrompt
+vmap     <C-F>f <Plug>CtrlSFVwordPath
+vmap     <C-F>F <Plug>CtrlSFVwordExec
+nmap     <C-F>n <Plug>CtrlSFCwordPath
+nmap     <C-F>p <Plug>CtrlSFPwordPath
+nnoremap <C-F>o :CtrlSFOpen<CR>

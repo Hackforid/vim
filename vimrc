@@ -1,21 +1,7 @@
-"" -----------------------------------------------------------------------------
-""  < 判断是终端还是 Gvim >
-"" -----------------------------------------------------------------------------
-if has("gui_running")
-	let g:isGUI = 1
-else
-	let g:isGUI = 0
-endif
-
-if has("gui_macvim")
-	set macmeta
-end
-
 "==============================================================================
 "< 一般设置》
 "==============================================================================
 
-set shortmess=atI "去掉乌干达
 set nocompatible "关闭vi兼容模式
 syntax enable
 syntax on "自动语法高亮
@@ -257,3 +243,7 @@ autocmd InsertLeave * call Fcitx2en()
 "进入插入模式
 autocmd InsertEnter * call Fcitx2zh()
 "##### auto fcitx end ######
+"
+"set noimdisable
+autocmd! InsertLeave * set imdisable|set iminsert=0
+autocmd! InsertEnter * set noimdisable|set iminsert=0
