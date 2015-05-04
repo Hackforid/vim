@@ -150,7 +150,7 @@ map <F10> :source ~/.vimrc<CR>
 
 " ======================  其他配置 ==============================
 source ~/.vim/vundle_config.vim
-filetype on
+"filetype on
 
 " ====================== Python ==================
 autocmd FileType python setlocal et sta sw=4 sts=4
@@ -245,5 +245,12 @@ autocmd InsertEnter * call Fcitx2zh()
 "##### auto fcitx end ######
 "
 "set noimdisable
-autocmd! InsertLeave * set imdisable|set iminsert=0
-autocmd! InsertEnter * set noimdisable|set iminsert=0
+"autocmd! InsertLeave * set imdisable|set iminsert=0
+"autocmd! InsertEnter * set noimdisable|set iminsert=0
+
+" Keep search pattern at the center of the screen.
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+nnoremap <silent> * *zz
+nnoremap <silent> # #zz
+nnoremap <silent> g* g*zz

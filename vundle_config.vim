@@ -2,104 +2,112 @@ set nocompatible               " be iMproved
 filetype off                   " required!
 
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call vundle#begin()
+
+Plugin 'maksimr/vim-jsbeautify'
+
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-surround'
+"Plugin 'python-rope/ropevim'
+Plugin 'fs111/pydoc.vim'
 
 "let Vundle manage Vundle
 "required!
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 "My Bundles here:
 "original repos on github
 
+"输入法
+Plugin 'ybian/smartim'
+
 " 括号补全
-"Bundle 'AutoClose'
+Plugin 'Raimondi/delimitMate'
 
 
-Bundle 'Tagbar'
+Plugin 'Tagbar'
 
-Bundle 'jQuery'
+Plugin 'jQuery'
 
 " SilverSearch
-"Bundle 'rking/ag.vim'
-Bundle 'dyng/ctrlsf.vim'
+"Plugin 'rking/ag.vim'
+Plugin 'dyng/ctrlsf.vim'
 
 " 显示行末空格
-Bundle 'ShowTrailingWhitespace'
+Plugin 'ShowTrailingWhitespace'
 
 " 主题
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'tomasr/molokai'
-Bundle 'vim-scripts/turbo.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tomasr/molokai'
+Plugin 'vim-scripts/turbo.vim'
 
 " powerline
-Bundle 'Lokaltog/vim-powerline'
-"Bundle 'bling/vim-airline'
-"
-" 补全
-Bundle 'Valloric/YouCompleteMe'
+Plugin 'Lokaltog/vim-powerline'
+"Plugin 'bling/vim-airline'
 
 " 命令行下主题
-Bundle 'vim-scripts/CSApprox'
+Plugin 'vim-scripts/CSApprox'
 
 " 对齐线
-Bundle 'Yggdroot/indentLine'
+Plugin 'Yggdroot/indentLine'
 "
 " python pep8 + pyflask F7
-Bundle 'nvie/vim-flake8'
-Bundle 'pyflakes.vim'
-"Bundle 'scrooloose/syntastic'
-Bundle 'tell-k/vim-autopep8'
+Plugin 'nvie/vim-flake8'
+Plugin 'pyflakes.vim'
+"Plugin 'scrooloose/syntastic'
+Plugin 'tell-k/vim-autopep8'
+Plugin 'hdima/python-syntax'
 
 " 目录树 F8
-Bundle 'scrooloose/nerdtree'
-Bundle 'jistr/vim-nerdtree-tabs'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
 
-Bundle 'plasticboy/vim-markdown'
+Plugin 'plasticboy/vim-markdown'
 
 " 平滑滚动
-Bundle 'yonchu/accelerated-smooth-scroll'
+Plugin 'yonchu/accelerated-smooth-scroll'
 
 " 代码块补全
-Bundle 'UltiSnips'
+Plugin 'SirVer/UltiSnips'
+Plugin 'honza/vim-snippets'
+Plugin 'Valloric/YouCompleteMe'
 
 " 跳转插件 \\w
-Bundle 'Lokaltog/vim-easymotion'
+Plugin 'Lokaltog/vim-easymotion'
 
 
 " 注释 \cc \cn \c
-Bundle 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdcommenter'
 
-Bundle 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
 
 " 多行选择 C-n C-p C-x
-Bundle 'terryma/vim-multiple-cursors'
+Plugin 'terryma/vim-multiple-cursors'
 
-Bundle 'bufexplorer.zip'
+Plugin 'bufexplorer.zip'
 
-Bundle 'sophacles/vim-processing'
+Plugin 'sophacles/vim-processing'
 
-Bundle 'sophacles/vim-bundle-mako'
+Plugin 'sophacles/vim-bundle-mako'
 
-Bundle 'junegunn/goyo.vim'
+Plugin 'junegunn/goyo.vim'
 
+call vundle#end()
 filetype plugin indent on     " required!
-
-" Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
 
 "==========  theme  ===========
 if has('gui_running')
 	set macmeta
 	set transparency=10
-	"set background=dark
 	colorscheme molokai
-	set guifont=Menlo:h13
+	"set guifont=Menlo:h13
+	set background=dark
+	"colorscheme solarized
+	set guifont=PragmataPro:h14
 else
 	colorscheme molokai
-	set guifont=Menlo:h13
+	"set guifont=Menlo:h13
+	set guifont=PragmataPro:h14
 endif
 
 " powerline
@@ -123,16 +131,13 @@ map <C-F9> <plug>NERDTreeSteppedClose<CR>
 let g:nerdtree_tabs_open_on_gui_startup=0
 let NERDTreeIgnore = ['\.pyc$']
 
-
 let g:UltiSnipsExpandTrigger='<C-j>'
 let g:UltiSnipsJumpForwardTrigger='<C-j>'
 let g:UltiSnipsJumpBackwardTrigger='<C-k>'
-let g:UltiSnipsListSnippets='<A-Space>'
-
 
 " 禁止PyFlakes使用QuickFix，这样在按下<F7>时会调用flake8，而有对于代码编辑时的错误仍能得到有效的提示
 "autocmd FileType python map <buffer> <F8> :call Autopep8()<CR>
-"let g:autopep8_disable_show_diff=1
+let g:autopep8_disable_show_diff=1
 let g:flake8_ignore="E501,W293"
 let g:pyflakes_use_quickfix = 0
 
@@ -140,12 +145,13 @@ let g:pyflakes_use_quickfix = 0
 let g:EclimCompletionMethod = 'omnifunc'
 :set list lcs=tab:\.\ 
 
-nmap <F2> \be
-nmap <F4> :TagbarToggle<CR>
+nmap <silent> <F2> \be
+nmap <silent> <F3> :TagbarOpen fc<CR>
+nmap <silent> <F4> :TagbarToggle<CR>
 
-nmap     <C-F>f <Plug>CtrlSFPrompt
-vmap     <C-F>f <Plug>CtrlSFVwordPath
-vmap     <C-F>F <Plug>CtrlSFVwordExec
-nmap     <C-F>n <Plug>CtrlSFCwordPath
-nmap     <C-F>p <Plug>CtrlSFPwordPath
-nnoremap <C-F>o :CtrlSFOpen<CR>
+
+" Brief help
+" :PluginList          - list configured bundles
+" :PluginInstall(!)    - install(update) bundles
+" :PluginSearch(!) foo - search(or refresh cache first) for foo
+" :PluginClean(!)      - confirm(or auto-approve) removal of unused bundles
