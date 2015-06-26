@@ -57,6 +57,7 @@ Plugin 'pyflakes.vim'
 "Plugin 'scrooloose/syntastic'
 Plugin 'tell-k/vim-autopep8'
 Plugin 'hdima/python-syntax'
+Plugin 'mindriot101/vim-yapf'
 
 " 目录树 F8
 Plugin 'scrooloose/nerdtree'
