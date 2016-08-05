@@ -29,6 +29,9 @@ Plugin 'Tagbar'
 
 Plugin 'jQuery'
 
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+
 " SilverSearch
 "Plugin 'rking/ag.vim'
 Plugin 'dyng/ctrlsf.vim'
@@ -145,6 +148,8 @@ let g:pyflakes_use_quickfix = 0
 
 let g:EclimCompletionMethod = 'omnifunc'
 :set list lcs=tab:\.\ 
+
+let g:jsx_ext_required = 0
 
 nmap <silent> <F2> \be
 nmap <silent> <F3> :TagbarOpen fc<CR>
