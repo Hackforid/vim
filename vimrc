@@ -151,6 +151,10 @@ map <F10> :source ~/.vimrc<CR>
 " ======================  其他配置 ==============================
 source ~/.vim/vundle_config.vim
 "filetype on
+"
+
+set ts=4
+set expandtab
 
 " ====================== Python ==================
 autocmd FileType python setlocal et sta sw=4 sts=4
@@ -220,6 +224,7 @@ command! Mako set filetype=mako
 command! Html set filetype=html
 command! Css set filetype=css
 command! Python set filetype=python
+command! Pug set filetype=pug
 
 "##### auto fcitx  ###########
 let g:input_toggle = 1

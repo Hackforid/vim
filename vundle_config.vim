@@ -31,6 +31,7 @@ Plugin 'jQuery'
 
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'digitaltoad/vim-pug'
 
 " SilverSearch
 "Plugin 'rking/ag.vim'
