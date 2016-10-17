@@ -97,6 +97,8 @@ Plugin 'sophacles/vim-bundle-mako'
 
 Plugin 'junegunn/goyo.vim'
 
+Plugin 'chemzqm/wxapp.vim'
+
 call vundle#end()
 filetype plugin indent on     " required!
 
@@ -155,6 +157,9 @@ let g:jsx_ext_required = 0
 nmap <silent> <F2> \be
 nmap <silent> <F3> :TagbarOpen fc<CR>
 nmap <silent> <F4> :TagbarToggle<CR>
+
+let g:tern_show_argument_hints = 'on_hold'
+let g:tern_show_signature_in_pum = 1
 
 
 " Brief help
