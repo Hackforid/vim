@@ -165,6 +165,8 @@ autocmd FileType mako setlocal foldmethod=indent
 
 autocmd FileType html setlocal et sta sw=2 sts=2
 autocmd FileType html setlocal foldmethod=indent
+autocmd FileType wxml setlocal et sta sw=2 sts=2
+autocmd FileType wxml setlocal foldmethod=indent
 
 autocmd FileType js setlocal et sta sw=2 sts=2
 autocmd FileType js setlocal foldmethod=indent
@@ -173,6 +175,8 @@ autocmd FileType javascript setlocal foldmethod=indent
 
 autocmd FileType css setlocal et sta sw=2 sts=2
 autocmd FileType css setlocal foldmethod=indent
+autocmd FileType scss setlocal et sta sw=2 sts=2
+autocmd FileType scss setlocal foldmethod=indent
 
 autocmd FileType processing setlocal et sta sw=4 sts=4
 autocmd FileType processing setlocal foldmethod=indent

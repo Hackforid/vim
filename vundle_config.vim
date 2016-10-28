@@ -4,6 +4,9 @@ filetype off                   " required!
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'skammer/vim-css-color'
+
 Plugin 'maksimr/vim-jsbeautify'
 
 Plugin 'airblade/vim-gitgutter'
@@ -63,7 +66,7 @@ Plugin 'tell-k/vim-autopep8'
 Plugin 'hdima/python-syntax'
 Plugin 'mindriot101/vim-yapf'
 
-" 目录树 F8
+" 目录树 F9
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 
@@ -89,7 +92,7 @@ Plugin 'kien/ctrlp.vim'
 " 多行选择 C-n C-p C-x
 Plugin 'terryma/vim-multiple-cursors'
 
-Plugin 'bufexplorer.zip'
+Plugin 'jlanzarotta/bufexplorer'
 
 Plugin 'sophacles/vim-processing'
 
@@ -138,7 +141,7 @@ map <C-F9> <plug>NERDTreeSteppedClose<CR>
 let g:nerdtree_tabs_open_on_gui_startup=0
 let NERDTreeIgnore = ['\.pyc$']
 
-let g:UltiSnipsExpandTrigger='<C-j>'
+let g:UltiSnipsExpandTrigger='<C-l>'
 let g:UltiSnipsJumpForwardTrigger='<C-j>'
 let g:UltiSnipsJumpBackwardTrigger='<C-k>'
 
