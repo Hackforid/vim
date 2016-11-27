@@ -4,22 +4,17 @@ filetype off                   " required!
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'skammer/vim-css-color'
-
-Plugin 'maksimr/vim-jsbeautify'
-
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-surround'
-"Plugin 'python-rope/ropevim'
-Plugin 'fs111/pydoc.vim'
-
 "let Vundle manage Vundle
 "required!
 Plugin 'gmarik/vundle'
 
 "My Bundles here:
 "original repos on github
+
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-surround'
+"Plugin 'python-rope/ropevim'
+Plugin 'fs111/pydoc.vim'
 
 "输入法
 Plugin 'ybian/smartim'
@@ -30,11 +25,17 @@ Plugin 'Raimondi/delimitMate'
 
 Plugin 'Tagbar'
 
+" 前端部分
 Plugin 'jQuery'
-
-Plugin 'pangloss/vim-javascript'
+"Plugin 'pangloss/vim-javascript'
+Plugin 'othree/es.next.syntax.vim'
+Plugin 'othree/yajs.vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'digitaltoad/vim-pug'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'skammer/vim-css-color'
+Plugin 'maksimr/vim-jsbeautify'
+
 
 " SilverSearch
 "Plugin 'rking/ag.vim'
@@ -154,8 +155,6 @@ let g:pyflakes_use_quickfix = 0
 
 let g:EclimCompletionMethod = 'omnifunc'
 :set list lcs=tab:\.\ 
-
-let g:jsx_ext_required = 0
 
 nmap <silent> <F2> \be
 nmap <silent> <F3> :TagbarOpen fc<CR>
