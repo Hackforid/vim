@@ -140,7 +140,7 @@ let g:ycm_seed_identifiers_with_syntax = 1
 map <F9> <plug>NERDTreeSteppedOpen<CR>
 map <C-F9> <plug>NERDTreeSteppedClose<CR>
 let g:nerdtree_tabs_open_on_gui_startup=0
-let NERDTreeIgnore = ['\.pyc$']
+let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 
 let g:UltiSnipsExpandTrigger='<C-l>'
 let g:UltiSnipsJumpForwardTrigger='<C-j>'
