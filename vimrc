@@ -104,6 +104,7 @@ nnoremap <A-K> <C-w>k
 nnoremap <A-L> <C-w>l
 " 选中状态下 Ctrl+c 复制
 vmap <C-c> "+y
+vmap <D-c> "+y
 imap <C-v> <esc>"+pa
 
 ""map <C-A> ggVGY
