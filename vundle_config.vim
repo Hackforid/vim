@@ -35,6 +35,7 @@ Plugin 'digitaltoad/vim-pug'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'skammer/vim-css-color'
 Plugin 'maksimr/vim-jsbeautify'
+Plugin 'posva/vim-vue'
 
 
 " SilverSearch
@@ -71,8 +72,6 @@ Plugin 'mindriot101/vim-yapf'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 
-Plugin 'plasticboy/vim-markdown'
-
 " 平滑滚动
 Plugin 'yonchu/accelerated-smooth-scroll'
 
@@ -102,6 +101,10 @@ Plugin 'sophacles/vim-bundle-mako'
 Plugin 'junegunn/goyo.vim'
 
 Plugin 'chemzqm/wxapp.vim'
+
+Plugin 'elzr/vim-json'
+
+Plugin 'gabrielelana/vim-markdown'
 
 call vundle#end()
 filetype plugin indent on     " required!

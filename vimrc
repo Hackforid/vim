@@ -168,6 +168,10 @@ autocmd FileType html setlocal et sta sw=2 sts=2
 autocmd FileType html setlocal foldmethod=indent
 autocmd FileType wxml setlocal et sta sw=2 sts=2
 autocmd FileType wxml setlocal foldmethod=indent
+autocmd FileType pug setlocal et sta sw=2 sts=2
+autocmd FileType pug setlocal foldmethod=indent
+autocmd FileType vue setlocal et sta sw=2 sts=2
+autocmd FileType vue setlocal foldmethod=indent
 
 autocmd FileType js setlocal et sta sw=2 sts=2
 autocmd FileType js setlocal foldmethod=indent
@@ -230,6 +234,7 @@ command! Html set filetype=html
 command! Css set filetype=css
 command! Python set filetype=python
 command! Pug set filetype=pug
+command! Vue set filetype=vue
 
 "##### auto fcitx  ###########
 let g:input_toggle = 1
