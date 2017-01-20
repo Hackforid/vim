@@ -13,8 +13,6 @@ Plugin 'gmarik/vundle'
 
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-surround'
-"Plugin 'python-rope/ropevim'
-Plugin 'fs111/pydoc.vim'
 
 "输入法
 Plugin 'ybian/smartim'
@@ -24,6 +22,8 @@ Plugin 'Raimondi/delimitMate'
 
 
 Plugin 'Tagbar'
+
+"Plugin 'vim-syntastic/syntastic'
 
 " 前端部分
 Plugin 'jQuery'
@@ -61,13 +61,14 @@ Plugin 'vim-scripts/CSApprox'
 " 对齐线
 Plugin 'Yggdroot/indentLine'
 "
-" python pep8 + pyflask F7
+" python pep8 + pyflask F7 pep8错误显示
 Plugin 'nvie/vim-flake8'
-Plugin 'pyflakes.vim'
-"Plugin 'scrooloose/syntastic'
+" 自动pep8 format
 Plugin 'tell-k/vim-autopep8'
+" python高亮
 Plugin 'hdima/python-syntax'
-Plugin 'mindriot101/vim-yapf'
+"Plugin 'python-rope/ropevim'
+Plugin 'fs111/pydoc.vim'
 
 " 目录树 F9
 Plugin 'scrooloose/nerdtree'
@@ -153,13 +154,6 @@ let g:UltiSnipsExpandTrigger='<C-l>'
 let g:UltiSnipsJumpForwardTrigger='<C-j>'
 let g:UltiSnipsJumpBackwardTrigger='<C-k>'
 
-" 禁止PyFlakes使用QuickFix，这样在按下<F7>时会调用flake8，而有对于代码编辑时的错误仍能得到有效的提示
-"autocmd FileType python map <buffer> <F8> :call Autopep8()<CR>
-let g:autopep8_disable_show_diff=1
-let g:flake8_ignore="E501,W293"
-let g:pyflakes_use_quickfix = 0
-
-
 let g:EclimCompletionMethod = 'omnifunc'
 :set list lcs=tab:\.\ 
 
@@ -174,6 +168,19 @@ let g:tern_show_signature_in_pum = 1
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
+
+" vim-syntastic/syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+
+"let g:syntastic_python_checkers = ['pylint']
+
 
 
 " Brief help
