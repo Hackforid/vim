@@ -1,141 +1,113 @@
-set nocompatible               " be iMproved
-filetype off                   " required!
-
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#begin()
-
-"let Vundle manage Vundle
-"required!
-Plugin 'gmarik/vundle'
+call plug#begin('~/.vim/plugged')
 
 "My Bundles here:
 "original repos on github
 
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-surround'
+
+"=========== 美化 ============
+
+" powerline
+Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+
+" 主题
+Plug 'altercation/vim-colors-solarized'
+Plug 'tomasr/molokai'
+Plug 'vim-scripts/turbo.vim'
+
+
+" 命令行下主题
+Plug 'vim-scripts/CSApprox'
+
+" 对齐线
+Plug 'Yggdroot/indentLine'
+"=============================
+
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-surround'
 
 "输入法
-Plugin 'ybian/smartim'
+Plug 'ybian/smartim'
 
 " 括号补全
-Plugin 'Raimondi/delimitMate'
+Plug 'Raimondi/delimitMate'
 
 
-Plugin 'Tagbar'
+Plug 'Tagbar'
 
-"Plugin 'vim-syntastic/syntastic'
+"Plug 'vim-syntastic/syntastic'
 
 " 前端部分
-Plugin 'jQuery'
-"Plugin 'pangloss/vim-javascript'
-Plugin 'othree/es.next.syntax.vim'
-Plugin 'othree/yajs.vim'
-Plugin 'mxw/vim-jsx'
-Plugin 'digitaltoad/vim-pug'
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'skammer/vim-css-color'
-Plugin 'maksimr/vim-jsbeautify'
-Plugin 'posva/vim-vue'
-Plugin 'hail2u/vim-css3-syntax'
+Plug 'jQuery'
+Plug 'othree/es.next.syntax.vim'
+Plug 'othree/yajs.vim'
+Plug 'mxw/vim-jsx'
+Plug 'digitaltoad/vim-pug'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'skammer/vim-css-color'
+Plug 'maksimr/vim-jsbeautify'
+Plug 'posva/vim-vue'
+Plug 'hail2u/vim-css3-syntax'
 
 
 " SilverSearch
-"Plugin 'rking/ag.vim'
-Plugin 'dyng/ctrlsf.vim'
+"Plug 'rking/ag.vim'
+Plug 'dyng/ctrlsf.vim'
 
 " 显示行末空格
-Plugin 'ShowTrailingWhitespace'
+Plug 'ShowTrailingWhitespace'
 
-" 主题
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'tomasr/molokai'
-Plugin 'vim-scripts/turbo.vim'
-
-" powerline
-Plugin 'Lokaltog/vim-powerline'
-"Plugin 'bling/vim-airline'
-
-" 命令行下主题
-Plugin 'vim-scripts/CSApprox'
-
-" 对齐线
-Plugin 'Yggdroot/indentLine'
 "
 " python pep8 + pyflask F7 pep8错误显示
-Plugin 'nvie/vim-flake8'
+Plug 'nvie/vim-flake8'
 " 自动pep8 format
-Plugin 'tell-k/vim-autopep8'
+Plug 'tell-k/vim-autopep8'
 " python高亮
-Plugin 'hdima/python-syntax'
-"Plugin 'python-rope/ropevim'
-Plugin 'fs111/pydoc.vim'
+Plug 'hdima/python-syntax'
+"Plug 'python-rope/ropevim'
+Plug 'fs111/pydoc.vim'
 
 " 目录树 F9
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
 
 " 平滑滚动
-Plugin 'yonchu/accelerated-smooth-scroll'
+"Plug 'yonchu/accelerated-smooth-scroll'
 
 " 代码块补全
-Plugin 'SirVer/UltiSnips'
-Plugin 'honza/vim-snippets'
-Plugin 'Valloric/YouCompleteMe'
+Plug 'SirVer/UltiSnips'
+Plug 'honza/vim-snippets'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer'}
 
 " 跳转插件 \\w
-Plugin 'Lokaltog/vim-easymotion'
+Plug 'Lokaltog/vim-easymotion'
 
 
 " 注释 \cc \cn \c
-Plugin 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 
-Plugin 'kien/ctrlp.vim'
+Plug 'kien/ctrlp.vim'
 
 " 多行选择 C-n C-p C-x
-Plugin 'terryma/vim-multiple-cursors'
+Plug 'terryma/vim-multiple-cursors'
 
-Plugin 'jlanzarotta/bufexplorer'
+Plug 'jlanzarotta/bufexplorer'
 
-Plugin 'sophacles/vim-processing'
+Plug 'sophacles/vim-bundle-mako'
 
-Plugin 'sophacles/vim-bundle-mako'
+Plug 'junegunn/goyo.vim'
 
-Plugin 'junegunn/goyo.vim'
+Plug 'chemzqm/wxapp.vim', {'for': ['wxml']}
 
-Plugin 'chemzqm/wxapp.vim'
+Plug 'elzr/vim-json'
 
-Plugin 'elzr/vim-json'
+Plug 'gabrielelana/vim-markdown'
 
-Plugin 'gabrielelana/vim-markdown'
+call plug#end()
 
-call vundle#end()
-filetype plugin indent on     " required!
-
-"==========  theme  ===========
-if has('gui_running')
-	set macmeta
-	set transparency=10
-	colorscheme molokai
-	"set guifont=Menlo:h13
-	set background=dark
-	"colorscheme solarized
-	set guifont=PragmataPro:h14
-else
-	colorscheme molokai
-	"set guifont=Menlo:h13
-	set guifont=PragmataPro:h14
-endif
-
-" powerline
-set laststatus=2 
-set t_Co=256 
-let g:Powerline_symbols = 'fancy'
-let Powerline_symbols = 'compatible'
-set encoding=utf8
-"let g:airline_theme='luna'
 
 " YouCompleteMe`
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
 nmap <F1> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let g:ycm_complete_in_comments_and_strings = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
@@ -170,9 +142,9 @@ set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
 
 " vim-syntastic/syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
 "let g:syntastic_always_populate_loc_list = 1
 "let g:syntastic_auto_loc_list = 1
@@ -181,10 +153,19 @@ set statusline+=%*
 
 "let g:syntastic_python_checkers = ['pylint']
 
+"========== 美化 ================
 
-
-" Brief help
-" :PluginList          - list configured bundles
-" :PluginInstall(!)    - install(update) bundles
-" :PluginSearch(!) foo - search(or refresh cache first) for foo
-" :PluginClean(!)      - confirm(or auto-approve) removal of unused bundles
+if has('gui_running')
+	set macmeta
+	set transparency=10
+	colorscheme molokai
+	"set guifont=Menlo:h13
+	set background=dark
+	"colorscheme solarized
+	set guifont=PragmataPro:h14
+else
+    set t_Co=256
+	colorscheme molokai
+	"set guifont=Menlo:h13
+	set guifont=PragmataPro:h14
+endif
