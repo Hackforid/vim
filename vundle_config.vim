@@ -17,7 +17,7 @@ Plug 'vim-scripts/CSApprox'
 Plug 'Yggdroot/indentLine'
 "=============================
 
-Plug 'w0rp/ale', {'for': ['py', 'js', 'css', 'scss', 'html']}
+Plug 'w0rp/ale', {'for': ['py', 'js', 'css', 'scss']}
 
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
@@ -37,10 +37,9 @@ Plug 'othree/yajs.vim'
 Plug 'mxw/vim-jsx'
 Plug 'digitaltoad/vim-pug'
 Plug 'cakebaker/scss-syntax.vim'
-Plug 'skammer/vim-css-color'
-Plug 'maksimr/vim-jsbeautify'
-Plug 'posva/vim-vue'
 Plug 'hail2u/vim-css3-syntax'
+" Plug 'maksimr/vim-jsbeautify'
+" Plug 'posva/vim-vue'
 
 
 " SilverSearch
@@ -107,6 +106,7 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_semantic_triggers = {
    \   'css': [ 're!^\s{2}', 're!:\s+' ],
+   \   'html': ['</','re!^\s{2}', 're!:\s+'],
    \ }
 
 "NERD_tree

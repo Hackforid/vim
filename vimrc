@@ -43,7 +43,6 @@ set whichwrap+=<,>,h,l,[,]
 set backspace=indent,eol,start " 不设定在插入状态无法用退格键和 Delete 键删除回车符
 set cmdheight=1 " 设定命令行的行数为 1
 set laststatus=2 " 显示状态栏 (默认值为 1, 无法显示状态栏)
-"set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ %{&encoding}\ %c:%l/%L%)\  " 设置在状态行显示的信息
 set foldenable " 开始折叠
 set foldmethod=syntax " 设置语法折叠
 set foldcolumn=0 " 设置折叠区域的宽度
@@ -186,55 +185,13 @@ autocmd FileType scss setlocal foldmethod=indent
 autocmd FileType processing setlocal et sta sw=4 sts=4
 autocmd FileType processing setlocal foldmethod=indent
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"C语言编译
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <C-F5> :call Compile()<CR> "设置编译映射
-func! Compile()
-	if &filetype == 'c'
-		exec "w"
-		set makeprg=gcc\ -Wall\ %:p\ -o\ %:r "这个地方设置了makeprg变量
-		"这个地方将原来的gcc命令改为make命令
-		exec "make"
-		"这个命令是在编译时打开quickfix列表窗口
-		exec "copen"
-	endif
-endfunc
-
-map <F5> :call Run()<CR> "设置运行映射
-func! Run()
-	if &filetype == 'c'
-		exec "!./%<"
-	elseif &filetype == 'python'
-		exec "!python %"
-	endif
-endfunc
-
-map <A-F5> :call CompileRun()<CR> "设置编译并运行的映射
-func! CompileRun()
-	if &filetype == 'c'
-		exec "w"
-		exec "!clear"
-		set makeprg=gcc\ -Wall\ %:p\ -o\ -%:r
-		exec "make"
-		exec "!./-%<"
-	endif
-endfunc
-
-map <F6> :call Debug()<CR>
-func!  Debug()
-	exec "w"
-	exec "!gcc % -o %< -gstabs+"
-	exec "!gdb %<"
-endfunc
-
 command! Js set filetype=javascript
 command! Mako set filetype=mako
 command! Html set filetype=html
 command! Css set filetype=css
 command! Python set filetype=python
 command! Pug set filetype=pug
-command! Vue set filetype=vue
+autocmd BufNewFile,BufRead *.vue set filetype=html
 
 "##### auto fcitx  ###########
 let g:input_toggle = 1
@@ -271,3 +228,7 @@ nnoremap <silent> N Nzz
 nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
+
+" disable middle parse
+map <MiddleMouse> <Nop>
+imap <MiddleMouse> <Nop>
