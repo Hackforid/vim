@@ -232,3 +232,5 @@ nnoremap <silent> g* g*zz
 " disable middle parse
 map <MiddleMouse> <Nop>
 imap <MiddleMouse> <Nop>
+
+
