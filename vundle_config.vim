@@ -89,7 +89,7 @@ Plug 'sophacles/vim-bundle-mako'
 
 Plug 'junegunn/goyo.vim'
 
-Plug 'chemzqm/wxapp.vim', {'for': ['wxml']}
+Plug 'chemzqm/wxapp.vim'
 
 Plug 'elzr/vim-json'
 
