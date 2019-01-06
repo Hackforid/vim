@@ -34,17 +34,14 @@ Plug 'ybian/smartim'
 " 括号补全
 Plug 'Raimondi/delimitMate'
 
+Plug 'sheerun/vim-polyglot'
 
 " 前端部分
-"Plug 'jQuery', {'for': ['js', 'html']}
 Plug 'othree/es.next.syntax.vim', {'for': ['js', 'html']}
 Plug 'othree/yajs.vim', {'for': ['js', 'html']}
 Plug 'mxw/vim-jsx', {'for': ['js', 'html', 'jsx']}
 Plug 'digitaltoad/vim-pug', {'for': ['js', 'html']}
-Plug 'cakebaker/scss-syntax.vim', {'for': ['css', 'scss']}
-Plug 'hail2u/vim-css3-syntax', {'for': ['css', 'scss']}
 " Plug 'maksimr/vim-jsbeautify'
-" Plug 'posva/vim-vue'
 
 
 " SilverSearch
@@ -59,7 +56,7 @@ Plug 'nvie/vim-flake8', {'for': 'python'}
 " 自动pep8 format
 Plug 'tell-k/vim-autopep8', {'for': 'python'}
 " python高亮
-Plug 'hdima/python-syntax', {'for': 'python'}
+" Plug 'hdima/python-syntax', {'for': 'python'}
 "Plug 'python-rope/ropevim'
 Plug 'fs111/pydoc.vim', {'for': 'python'}
 
@@ -91,15 +88,11 @@ Plug 'jlanzarotta/bufexplorer'
 
 Plug 'sophacles/vim-bundle-mako', {'for': 'html'}
 
-
 Plug 'chemzqm/wxapp.vim', {'for': ['wxss', 'wxml', 'js']}
-
-" Plug 'elzr/vim-json'
 
 Plug 'junegunn/goyo.vim', {'for': 'markdown'}
 Plug 'gabrielelana/vim-markdown', {'for': 'markdown'}
 
-Plug 'udalov/kotlin-vim', {'for': 'kotlin'}
 
 call plug#end()
 
