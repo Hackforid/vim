@@ -17,7 +17,7 @@ Plug 'vim-scripts/CSApprox'
 Plug 'Yggdroot/indentLine'
 "=============================
 
-Plug 'w0rp/ale', {'for': ['py', 'js', 'css', 'scss']}
+Plug 'w0rp/ale', {'for': ['python', 'js', 'css', 'scss']}
 
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
@@ -31,13 +31,13 @@ Plug 'Raimondi/delimitMate'
 Plug 'Tagbar'
 
 " 前端部分
-Plug 'jQuery'
-Plug 'othree/es.next.syntax.vim'
-Plug 'othree/yajs.vim'
-Plug 'mxw/vim-jsx'
-Plug 'digitaltoad/vim-pug'
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'hail2u/vim-css3-syntax'
+Plug 'jQuery', {'for': ['js', 'html']}
+Plug 'othree/es.next.syntax.vim', {'for': ['js', 'html']}
+Plug 'othree/yajs.vim', {'for': ['js', 'html']}
+Plug 'mxw/vim-jsx', {'for': ['js', 'html']}
+Plug 'digitaltoad/vim-pug', {'for': ['js', 'html']}
+Plug 'cakebaker/scss-syntax.vim', {'for': ['css', 'scss']}
+Plug 'hail2u/vim-css3-syntax', {'for': ['css', 'scss']}
 " Plug 'maksimr/vim-jsbeautify'
 " Plug 'posva/vim-vue'
 
@@ -51,17 +51,16 @@ Plug 'ShowTrailingWhitespace'
 
 "
 " python pep8 + pyflask F7 pep8错误显示
-Plug 'nvie/vim-flake8'
+Plug 'nvie/vim-flake8', {'for': 'python'}
 " 自动pep8 format
-Plug 'tell-k/vim-autopep8'
+Plug 'tell-k/vim-autopep8', {'for': 'python'}
 " python高亮
-Plug 'hdima/python-syntax'
+Plug 'hdima/python-syntax', {'for': 'python'}
 "Plug 'python-rope/ropevim'
-Plug 'fs111/pydoc.vim'
+Plug 'fs111/pydoc.vim', {'for': 'python'}
 
 " 目录树 F9
-Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " 平滑滚动
 "Plug 'yonchu/accelerated-smooth-scroll'
@@ -85,15 +84,15 @@ Plug 'terryma/vim-multiple-cursors'
 
 Plug 'jlanzarotta/bufexplorer'
 
-Plug 'sophacles/vim-bundle-mako'
+Plug 'sophacles/vim-bundle-mako', {'for': 'html'}
 
 Plug 'junegunn/goyo.vim'
 
-Plug 'chemzqm/wxapp.vim'
+Plug 'chemzqm/wxapp.vim', {'for': ['wxss', 'wxml', 'js']}
 
-Plug 'elzr/vim-json'
+" Plug 'elzr/vim-json'
 
-Plug 'gabrielelana/vim-markdown'
+Plug 'gabrielelana/vim-markdown', {'for': 'markdown'}
 
 call plug#end()
 
@@ -110,10 +109,12 @@ let g:ycm_semantic_triggers = {
    \ }
 
 "NERD_tree
-map <F9> <plug>NERDTreeSteppedOpen<CR>
-map <C-F9> <plug>NERDTreeSteppedClose<CR>
-let g:nerdtree_tabs_open_on_gui_startup=0
+"map <F9> <plug>NERDTreeSteppedOpen<CR>
+"map <C-F8> <plug>NERDTreeSteppedClose<CR>
+map <F8> :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.pyc$', '__pycache__']
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 
 let g:UltiSnipsExpandTrigger='<C-l>'
 let g:UltiSnipsJumpForwardTrigger='<C-j>'
@@ -122,6 +123,7 @@ let g:UltiSnipsJumpBackwardTrigger='<C-k>'
 let g:EclimCompletionMethod = 'omnifunc'
 :set list lcs=tab:\.\ 
 
+" 打开bufexplorer
 nmap <silent> <F2> \be
 nmap <silent> <F3> :TagbarOpen fc<CR>
 nmap <silent> <F4> :TagbarToggle<CR>
