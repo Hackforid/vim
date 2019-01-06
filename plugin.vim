@@ -66,6 +66,7 @@ Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'}
 
 " 平滑滚动
 "Plug 'yonchu/accelerated-smooth-scroll'
+Plug 'yuttie/comfortable-motion.vim'
 
 " 代码块补全
 Plug 'SirVer/UltiSnips'
