@@ -34,7 +34,6 @@ Plug 'ybian/smartim'
 " 括号补全
 Plug 'Raimondi/delimitMate'
 
-Plug 'majutsushi/tagbar'
 
 " 前端部分
 "Plug 'jQuery', {'for': ['js', 'html']}
@@ -66,6 +65,7 @@ Plug 'fs111/pydoc.vim', {'for': 'python'}
 
 " 目录树 F8
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'}
 
 " 平滑滚动
 "Plug 'yonchu/accelerated-smooth-scroll'
@@ -132,8 +132,7 @@ let g:EclimCompletionMethod = 'omnifunc'
 
 " 打开bufexplorer
 nmap <silent> <F2> \be
-nmap <silent> <F3> :TagbarOpen fc<CR>
-nmap <silent> <F4> :TagbarToggle<CR>
+nmap <F3> :TagbarToggle<CR>
 
 let g:tern_show_argument_hints = 'on_hold'
 let g:tern_show_signature_in_pum = 1
