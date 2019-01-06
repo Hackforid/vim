@@ -64,7 +64,7 @@ Plug 'hdima/python-syntax', {'for': 'python'}
 "Plug 'python-rope/ropevim'
 Plug 'fs111/pydoc.vim', {'for': 'python'}
 
-" 目录树 F9
+" 目录树 F8
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " 平滑滚动
