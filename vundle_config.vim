@@ -73,7 +73,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " 代码块补全
 Plug 'SirVer/UltiSnips'
 Plug 'honza/vim-snippets'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer'}
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --ts-completer --clang-completer --java-completer'}
 
 " 跳转插件 \\w
 Plug 'Lokaltog/vim-easymotion'
@@ -270,3 +270,8 @@ function! ALEGetWarning()
         endif
     endif
 endfunction
+
+" 注释
+" Enable NERDCommenterToggle to check all selected lines is commented or not 
+let g:NERDToggleCheckAllLines = 1
+vmap cc <Leader>c<Space>
