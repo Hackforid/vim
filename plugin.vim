@@ -34,7 +34,7 @@ Plug 'ybian/smartim'
 " 括号补全
 Plug 'Raimondi/delimitMate'
 
-Plug 'Tagbar'
+Plug 'majutsushi/tagbar'
 
 " 前端部分
 "Plug 'jQuery', {'for': ['js', 'html']}
@@ -52,7 +52,7 @@ Plug 'hail2u/vim-css3-syntax', {'for': ['css', 'scss']}
 Plug 'dyng/ctrlsf.vim'
 
 " 显示行末空格
-Plug 'ShowTrailingWhitespace'
+Plug 'vim-scripts/ShowTrailingWhitespace'
 
 "
 " python pep8 + pyflask F7 pep8错误显示
