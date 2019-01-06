@@ -149,7 +149,7 @@ cnoremap w!! w !sudo tee % >/dev/null
 map <F10> :source ~/.vimrc<CR>
 
 " ======================  其他配置 ==============================
-source ~/.vim/vundle_config.vim
+source ~/.vim/plugin.vim
 "filetype on
 "
 
