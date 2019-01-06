@@ -2,8 +2,11 @@ call plug#begin('~/.vim/plugged')
 
 "=========== 美化 ============
 " powerline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
+Plug 'itchyny/vim-gitbranch'
+Plug 'maximbaz/lightline-ale'
 
 " 主题
 Plug 'altercation/vim-colors-solarized'
@@ -15,6 +18,9 @@ Plug 'vim-scripts/CSApprox'
 
 " 对齐线
 Plug 'Yggdroot/indentLine'
+" 彩虹括号
+Plug 'luochen1990/rainbow'
+let g:rainbow_active = 1
 "=============================
 
 Plug 'w0rp/ale', {'for': ['python', 'js', 'css', 'scss']}
@@ -31,10 +37,10 @@ Plug 'Raimondi/delimitMate'
 Plug 'Tagbar'
 
 " 前端部分
-Plug 'jQuery', {'for': ['js', 'html']}
+"Plug 'jQuery', {'for': ['js', 'html']}
 Plug 'othree/es.next.syntax.vim', {'for': ['js', 'html']}
 Plug 'othree/yajs.vim', {'for': ['js', 'html']}
-Plug 'mxw/vim-jsx', {'for': ['js', 'html']}
+Plug 'mxw/vim-jsx', {'for': ['js', 'html', 'jsx']}
 Plug 'digitaltoad/vim-pug', {'for': ['js', 'html']}
 Plug 'cakebaker/scss-syntax.vim', {'for': ['css', 'scss']}
 Plug 'hail2u/vim-css3-syntax', {'for': ['css', 'scss']}
@@ -43,7 +49,6 @@ Plug 'hail2u/vim-css3-syntax', {'for': ['css', 'scss']}
 
 
 " SilverSearch
-"Plug 'rking/ag.vim'
 Plug 'dyng/ctrlsf.vim'
 
 " 显示行末空格
@@ -86,13 +91,15 @@ Plug 'jlanzarotta/bufexplorer'
 
 Plug 'sophacles/vim-bundle-mako', {'for': 'html'}
 
-Plug 'junegunn/goyo.vim'
 
 Plug 'chemzqm/wxapp.vim', {'for': ['wxss', 'wxml', 'js']}
 
 " Plug 'elzr/vim-json'
 
+Plug 'junegunn/goyo.vim', {'for': 'markdown'}
 Plug 'gabrielelana/vim-markdown', {'for': 'markdown'}
+
+Plug 'udalov/kotlin-vim', {'for': 'kotlin'}
 
 call plug#end()
 
@@ -153,36 +160,69 @@ else
 	set guifont=PragmataPro:h14
 endif
 
+" vim-lightline
+if !has('gui_running')
+  set t_Co=256
+endif
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+      \   'right': [ [ 'lineinfo' ],
+      \              [ 'percent' ],
+      \              [ 'fileformat', 'fileencoding', 'filetype'],
+      \              [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ],
+      \   ]
+      \ },
+      \ 'component': {
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'gitbranch#name'
+      \ },
+      \ }
+let g:lightline.component_expand = {
+      \  'linter_checking': 'lightline#ale#checking',
+      \  'linter_warnings': 'lightline#ale#warnings',
+      \  'linter_errors': 'lightline#ale#errors',
+      \  'linter_ok': 'lightline#ale#ok',
+      \ }
+let g:lightline.component_type = {
+      \     'linter_checking': 'left',
+      \     'linter_warnings': 'warning',
+      \     'linter_errors': 'error',
+      \     'linter_ok': 'left',
+      \ }
 
 " vim-airline {
-    "let g:airline_theme='violet'
-    let g:Powerline_symbols='fancy'
-    "let g:airline#extensions#tabline#enabled=1
-    "let g:airline#extensions#tabline#buffer_idx_mode = 1
-    "let g:airline#extensions#tabline#buffer_nr_show = 1
-    "let g:airline#extensions#tabline#buffer_nr_format = '%s:'
-    "let g:airline#extensions#tabline#fnamemod = ':t'
-    "let g:airline#extensions#tabline#fnamecollapse = 1
-    "let g:airline#extensions#tabline#fnametruncate = 0
-    "let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-    let g:airline#extensions#default#section_truncate_width = {
-                \ 'b': 79,
-                \ 'x': 60,
-                \ 'y': 88,
-                \ 'z': 45,
-                \ 'warning': 80,
-                \ 'error': 80,
-                \ }
-    let g:airline#extensions#default#layout = [
-                \ [ 'a', 'error', 'warning', 'b', 'c' ],
-                \ [ 'x', 'y', 'z' ]
-                \ ]
+    ""let g:airline_theme='violet'
+    "let g:Powerline_symbols='fancy'
+    ""let g:airline#extensions#tabline#enabled=1
+    ""let g:airline#extensions#tabline#buffer_idx_mode = 1
+    ""let g:airline#extensions#tabline#buffer_nr_show = 1
+    ""let g:airline#extensions#tabline#buffer_nr_format = '%s:'
+    ""let g:airline#extensions#tabline#fnamemod = ':t'
+    ""let g:airline#extensions#tabline#fnamecollapse = 1
+    ""let g:airline#extensions#tabline#fnametruncate = 0
+    ""let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+    "let g:airline#extensions#default#section_truncate_width = {
+                "\ 'b': 79,
+                "\ 'x': 60,
+                "\ 'y': 88,
+                "\ 'z': 45,
+                "\ 'warning': 80,
+                "\ 'error': 80,
+                "\ }
+    "let g:airline#extensions#default#layout = [
+                "\ [ 'a', 'error', 'warning', 'b', 'c' ],
+                "\ [ 'x', 'y', 'z' ]
+                "\ ]
 
-    " Distinct background color is enough to discriminate the warning and
-    " error information.
-    let g:airline#extensions#ale#error_symbol = '•'
-    let g:airline#extensions#ale#warning_symbol = '•'
-" }
+    "" Distinct background color is enough to discriminate the warning and
+    "" error information.
+    "let g:airline#extensions#ale#error_symbol = '•'
+    "let g:airline#extensions#ale#warning_symbol = '•'
+"" }
 
 " ======= ale 语法分析 =========
 
