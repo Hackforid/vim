@@ -146,7 +146,7 @@ cnoremap <C-e> <End>
 " sudo
 cnoremap w!! w !sudo tee % >/dev/null
 
-map <F10> :source ~/.vimrc<CR>
+map <F10> :source ~/.vim/vimrc<CR>
 
 " ======================  其他配置 ==============================
 source ~/.vim/plugin.vim
